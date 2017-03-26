@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dualgraph.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\edge.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graph.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\model.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\node.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\terrainapplication.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\terrainprocessor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vector3d.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\heapedge.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\heapnode.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\dualgraph.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\edge.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graph.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\node.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\terrainprocessor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vector3d.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\heapedge.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\heapnode.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
