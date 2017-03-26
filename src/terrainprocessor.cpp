@@ -293,6 +293,6 @@ void terrainprocessor::makegraph(void)
 	}
 }
 /*----------------------------------------------------------------------*/
-rgbvector* terrainprocessor::getResult() {
+rgbvector* terrainprocessor::getresult() {
 	return *screen;
 }

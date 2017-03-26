@@ -91,7 +91,7 @@ public:
 	void ridges();
 	void terrain();
 	void makegraph(void);
-	rgbvector* getResult();
+	rgbvector* getresult();
 private:
 	int actx, acty;
 	heaptype heap;
@@ -103,7 +103,6 @@ private:
 	int BASE[5][5]; //[bXD][bYD];
 	rgbvector postfilter_c[bXD][bYD];
 	rgbvector backup[bXD][bYD];
-	void processmany(void);
 	int numridgepts;
 	ridgepoint ridgedata[MAXRIDGES];
 };

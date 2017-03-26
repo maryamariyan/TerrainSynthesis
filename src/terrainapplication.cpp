@@ -1579,7 +1579,7 @@ namespace DijkstraUtil {
 			//free(img);
 
 //			terrainprocessor->testStripe();
-			std::vector<double> resultingHeightfield = fillInHF(terrainprocessor->getResult());
+			std::vector<double> resultingHeightfield = fillInHF(terrainprocessor->getresult());
 			
 			updateModel(resultingHeightfield);
 		}
