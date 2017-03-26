@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#define LENGTH 512
+#define LENGTH 200
 #define TRUE 1
 #define FALSE 0
 #define HEAP_FACTOR 7

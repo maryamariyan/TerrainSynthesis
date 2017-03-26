@@ -21,8 +21,8 @@ void terrainprocessor::fillbackup(PPMImage *img)
 			backup[img->y - 1 - t][s] = img->data[i];
 		}
 	}
-//	512 = img->x;
-//	512 = img->y;
+//	LENGTH = img->x;
+//	LENGTH = img->y;
 }
 /*----------------------------------------------------------------------*/
 void terrainprocessor::emptyheap(heaptype *heap)
@@ -97,7 +97,7 @@ void terrainprocessor::insertintoheap(strippednode innode, heaptype *heap)
 	strippednode bottom;
 	int found;
 
-	if (heap->numentries == 512 * 512 * HEAP_FACTOR)
+	if (heap->numentries == LENGTH * LENGTH * HEAP_FACTOR)
 	{
 		// heap filled!
 		fprintf(stderr, "Heap full!\n");
@@ -132,10 +132,10 @@ void terrainprocessor::ridges()
 
 	for (int i = 0; i < numridgepts; i++)
 	{
-		ridgedata[i].loc = rand() % (512*512);
+		ridgedata[i].loc = rand() % (LENGTH *LENGTH);
 		ridgedata[i].val = 0;
 	}
-	ridgedata[0].loc = (512*512) / 2 + 80;
+	ridgedata[0].loc = (LENGTH *LENGTH) / 2 + 80;
 }
 /*---------------------------------------------------------------------------*/
 void terrainprocessor::terrain()
@@ -151,14 +151,14 @@ void terrainprocessor::terrain()
 
 
 	// initialize all distance values to +infinity
-	for (int i = 0; i < 512 * 512; i++)
+	for (int i = 0; i < LENGTH * LENGTH; i++)
 	{
-		pix[i].partcost = 512*512 * 100; // approximation of infinity
+		pix[i].partcost = LENGTH *LENGTH * 100; // approximation of infinity
 		
-//		pix[i].partcost = (int)(0.5*1255*sqrt((pix[i].loc.x-512/2)*
-//		(pix[i].loc.x-512/2)+
-//		(pix[i].loc.y-512/2)*
-//		(pix[i].loc.y-512/2)));
+//		pix[i].partcost = (int)(0.5*1255*sqrt((pix[i].loc.x-LENGTH/2)*
+//		(pix[i].loc.x-LENGTH/2)+
+//		(pix[i].loc.y-LENGTH/2)*
+//		(pix[i].loc.y-LENGTH/2)));
 	}
 
 	emptyheap(&heap);
@@ -172,7 +172,7 @@ void terrainprocessor::terrain()
 		insertintoheap(sn, &heap);
 	}
 
-	fprintf(stderr, "there are %i entries! (size %i %i)\n", numridgepts, 512, 512);
+	fprintf(stderr, "there are %i entries! (size %i %i)\n", numridgepts, LENGTH, LENGTH);
 
 	while (heap.numentries > 0) // continue until nothing left
 	{
@@ -222,7 +222,7 @@ void terrainprocessor::terrain()
 	// next need to visualize distance values, put into screen
 	int temp;
 
-	for (int i = 0; i < 512*512; i++)
+	for (int i = 0; i < LENGTH *LENGTH; i++)
 	{
 		s = pix[i].loc.y;
 		t = pix[i].loc.x;
@@ -256,8 +256,8 @@ void terrainprocessor::makegraph(void)
 	dir[3].y = 0;
 
 
-	for (i = 0; i != 512; i++)
-	for (j = 0; j != 512; j++)
+	for (i = 0; i != LENGTH; i++)
+	for (j = 0; j != LENGTH; j++)
 	{
 
 		pix[numnodes].loc.x = i;
@@ -269,18 +269,18 @@ void terrainprocessor::makegraph(void)
 		for (k = 0; k != 4; k++)
 		{
 			// mod for tor topo:
-			s = (i + dir[k].x + 512) % 512;
-			t = (j + dir[k].y + 512) % 512;
+			s = (i + dir[k].x + LENGTH) % LENGTH;
+			t = (j + dir[k].y + LENGTH) % LENGTH;
 
 			// no special topo
 			s = (i + dir[k].x);
 			t = (j + dir[k].y);
 
-			if ((s >= 0) && (s < 512) && (t >= 0) && (t < 512))
+			if ((s >= 0) && (s < LENGTH) && (t >= 0) && (t < LENGTH))
 			{
 				p = pix[numnodes].numedges;
-				newedge.nearend = j + i*512;
-				newedge.farend = t + s*512;
+				newedge.nearend = j + i*LENGTH;
+				newedge.farend = t + s*LENGTH;
 				//newedge.cost = backup[j][i].red + 1 + (rand() % 50);
 				newedge.cost = 1 + (rand() % 50);
 

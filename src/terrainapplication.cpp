@@ -1385,7 +1385,7 @@ namespace DijkstraUtil {
 
 			resultCanvas.bg_color = ofColor(255, 255, 255);
 			resultCanvas.label = "Dijkstra result";
-			resultCanvas.start_position.set(0, 100);
+			resultCanvas.start_position.set(0, 100 + DSIZE);
 			resultCanvas.content_size = vec2Key(width, height);
 			resultCanvas.margin_top = vec2Key(10, 10);
 			resultCanvas.margin_bottom = vec2Key(10, 10);
